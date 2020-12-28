@@ -3,11 +3,11 @@ import gamefiles
 
 
 def lambda_handler(event, context):
-    if event["context"]["System"]["application"][
-        "applicationId"] != "amzn1.ask.skill.4fbb14b4-0a0b-41b7-ba47-191e1987e566":
+    if event["context"]["System"]["application"]["applicationId"] != \
+            "amzn1.ask.skill.4fbb14b4-0a0b-41b7-ba47-191e1987e566":
         return error()
-    elif event["context"]["System"]["application"][
-        "applicationId"] == "amzn1.ask.skill.4fbb14b4-0a0b-41b7-ba47-191e1987e566":
+    elif event["context"]["System"]["application"]["applicationId"] == \
+            "amzn1.ask.skill.4fbb14b4-0a0b-41b7-ba47-191e1987e566":
         if event['request']['type'] == "LaunchRequest":
             return on_launch(event)
         elif event['request']['type'] == "IntentRequest":
@@ -81,8 +81,8 @@ def on_intent(event):
         tempmoney = round(tempmoney, 2)
         Message = Message + " You have £" + str(tempmoney) + " left."
         if tempmoney <= 0:
-            Message = Message+" You have ran out of money, this means the game is over. Launch the skill again to play " \
-                              "another time."
+            Message = Message + " You have ran out of money, this means the game is over. Launch the skill again to play " \
+                                "another time."
             should_end_session = True
         else:
             Message = Message + " You have £" + str(tempmoney) + " left."
@@ -94,7 +94,7 @@ def on_intent(event):
         speech_output = Message
         reprompt_text = speech_output
         return build_response(session_attributes, build_speechlet_response(card_title, speech_output, reprompt_text,
-                                                                               should_end_session))
+                                                                           should_end_session))
 
 
 def rules(event):
@@ -115,17 +115,20 @@ def rules(event):
     return build_response(session_attributes,
                           build_speechlet_response(card_title, speech_output, reprompt_text, should_end_session))
 
+
 def help(event):
     Money = getmoney(event)
     session_attributes = {
         "Money": Money
     }
     card_title = "Help"
-    speech_output = "To play you can say, Roll. If you want to learn the rules, you can say what are the rules. And to leave the game, you can say Stop."
+    speech_output = "To play you can say, Roll. If you want to learn the rules, you can say what are the rules. And to" \
+                    " leave the game, you can say Stop."
     reprompt_text = speech_output
     should_end_session = False
     return build_response(session_attributes,
                           build_speechlet_response(card_title, speech_output, reprompt_text, should_end_session))
+
 
 def on_session_started(session_started_request, session):
     """ Called when the session starts """
@@ -155,7 +158,9 @@ def get_welcome_response(event):
         "Money": 1.0
     }
     card_title = "Welcome"
-    speech_output = "Welcome to the fruit machine game, we are currently in beta. you currently have £1 if you would like to play say ,Roll else you can quit, or say help."
+    speech_output = "Welcome to the fruit machine game, we are currently in beta. you currently" \
+                    " have £1. if you would like to play say Roll. If you'd like to quit, say Quit. If you need some" \
+                    " tips,say help."
     reprompt_text = speech_output
     should_end_session = False
     return build_response(session_attributes, build_speechlet_response(
@@ -171,7 +176,7 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
         'card': {
             'type': 'Simple',
             'title': title,
-            'content':output
+            'content': output
         },
         'reprompt': {
             'outputSpeech': {
