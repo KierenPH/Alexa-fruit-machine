@@ -2,7 +2,7 @@ import pymongo
 from pymongo import MongoClient
 
 cluster = MongoClient(
-    "mongodb+srv://fruitmachine:BcIzoGj60y2SQUGC@cluster0.pudch.mongodb.net/scores?retryWrites=true&w=majority")
+    "MONGO DB CONNECTION INFO HERE")
 db = cluster.Scores
 posts = db.Score
 
