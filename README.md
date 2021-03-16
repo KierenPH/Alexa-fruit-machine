@@ -1,5 +1,5 @@
 # Alexa-fruit-machine
-A small alexa funtion for a fruit machine, its a simple machine but works quite well, although not the most efficent. Check it out here: https://www.amazon.co.uk/Kieren-Hamman-Fruit-Machine/dp/B08R5F45NP/ref=sr_1_1?dchild=1&keywords=alexa+fruit+machine&qid=1615932132&s=digital-skills&sr=1-1
+A small alexa funtion for a fruit machine, its a simple machine but works quite well, although not the most efficent. Check it out [here](https://www.amazon.co.uk/Kieren-Hamman-Fruit-Machine/dp/B08R5F45NP/ref=sr_1_1?dchild=1&keywords=alexa+fruit+machine&qid=1615932132&s=digital-skills&sr=1-1)
 
 # Setup
 
